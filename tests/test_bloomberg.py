@@ -33,7 +33,7 @@ class BlockTests(unittest.TestCase):
 class TimeZoneTests(unittest.TestCase):
     def test_bangkok_bar_close_becomes_utc_price_at_hour(self):
         # The bar starting 10:00 Bangkok closes at 11:00 Bangkok = 04:00 UTC.
-        local = pd.Series([1.0], index=pd.DatetimeIndex([pd.Timestamp("2026-09-01 10:00")]))
+        local = pd.Series([1.0], index=pd.DatetimeIndex([pd.Timestamp("2026-09-01 09:30")]))
         out = intraday_to_utc(local)
         self.assertEqual(out["bucket_utc"].iloc[0], pd.Timestamp("2026-09-01 04:00", tz="UTC"))
 
